@@ -7,7 +7,7 @@
 ----------
 react + redux + webpack3 + react-router + ES6/7 + immutable
 
-运行运行
+运行项目
 ----------
     git clone https://github.com/GoFighting/webpack-react
     cd webpack-react
