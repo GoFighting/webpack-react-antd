@@ -33,10 +33,6 @@ fs.readdirSync(DLL_PATH).forEach(function(item, i) { // 获取公共模块文件
         vendorName = item
     }
 })
-if (vendorName === '') {
-    console.log('请先执行npm run dll')
-    return
-}
 
 var webpackConfig = {
     entry: {},
