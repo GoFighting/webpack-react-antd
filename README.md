@@ -2,6 +2,7 @@
 
 ----------
 项目地址：<https://github.com/GoFighting/webpack-react>
+
 技术栈
 ----------
 react + redux + webpack3 + react-router + ES6、7 + immutable
