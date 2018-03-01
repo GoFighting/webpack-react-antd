@@ -5,7 +5,7 @@
 
 技术栈
 ----------
-react + redux + webpack3 + react-router + ES6、7 + immutable
+react + redux + webpack3 + react-router + ES6/7 + immutable
 
 运行运行
 ----------
