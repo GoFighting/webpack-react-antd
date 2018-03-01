@@ -6,7 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成html
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var DllConfig = require('./webpack.dll.config');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-
+var HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 /* 
  * 定义地址
  */
@@ -23,7 +23,7 @@ process.argv.forEach(function(item, i) {
         NODE_ENV = 'development'
     } else if (/webpack.config/.test(item)) {
         NODE_ENV = 'production'
-        publicPath = './'
+        publicPath = 'http://199.155.122.115/webpack-react/'
     }
 });
 
@@ -33,7 +33,7 @@ fs.readdirSync(DLL_PATH).forEach(function(item, i) { // 获取公共模块文件
         vendorName = item
     }
 })
-if(vendorName === '') {
+if (vendorName === '') {
     console.log('请先执行npm run dll')
     return
 }
@@ -109,6 +109,17 @@ var webpackConfig = {
             favicon: './public/favicon.ico',
             inject: 'body',
             hash: false,
+            // minify: {
+            //     caseSensitive: fasle, // 是否大小写敏感
+            //     removeComments: true, // 去除注释
+            //     removeEmptyAttributes: true, // 出去空属性
+            //     collapseWhiteSpace: true // 是否去除空格
+            // }
+        }),
+        new HtmlWebpackIncludeAssetsPlugin({
+            assets: [vendorName],
+            append: false,
+            jsExtensions: ['.js']
         }),
         new ExtractTextPlugin({
             filename: 'app.[chunkhash].css',

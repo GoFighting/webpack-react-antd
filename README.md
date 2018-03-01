@@ -1,6 +1,5 @@
 yarn install
-npm run dll
-根据dll文件夹里的文件，修改index.html里的vendor.*.js引用名称
+npm run dll // 打包公共模块
 npm start 
 
 打包
