@@ -151,7 +151,6 @@ if (NODE_ENV === 'development') {
         //     name: 'common',
         //     filename: 'vender.js',
         // }),
-        
         new CopyWebpackPlugin([ // 转移已打包好的公共模块
             {
                 from: 'dll/' + vendorName,
