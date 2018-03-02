@@ -122,6 +122,10 @@ var webpackConfig = {
             disable: false,
             allChunks: true
         }),
+        new webpack.DllReferencePlugin({ // 设置预先分离的模块
+            context: __dirname,
+            manifest: require('./dll/manifest.json')
+        })
     ],
     resolve: {
         extensions: ['.js', '.jsx', '.less', '.scss', '.css'] //后缀名自动补全
@@ -147,10 +151,7 @@ if (NODE_ENV === 'development') {
         //     name: 'common',
         //     filename: 'vender.js',
         // }),
-        new webpack.DllReferencePlugin({ // 设置预先分离的模块
-            context: __dirname,
-            manifest: require('./dll/manifest.json')
-        }),
+        
         new CopyWebpackPlugin([ // 转移已打包好的公共模块
             {
                 from: 'dll/' + vendorName,
@@ -167,10 +168,6 @@ if (NODE_ENV === 'development') {
     webpackConfig['output']['publicPath'] = publicPath // 最后输出的地址
     // webpackConfig['entry']['common'] = DllConfig['entry']['vendor']
     webpackConfig['plugins'].push(
-        new webpack.DllReferencePlugin({ // 设置预先分离的模块
-            context: __dirname,
-            manifest: require('./dll/manifest.json')
-        }),
         // new webpack.optimize.CommonsChunkPlugin({ // 打包公共模块，现在用DLL分离打包了
         //     name: 'common',
         //     filename: 'vender.[chunkhash].js',
