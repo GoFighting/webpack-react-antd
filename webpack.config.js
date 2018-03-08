@@ -132,6 +132,7 @@ var webpackConfig = {
     }
 };
 if (NODE_ENV === 'development') {
+    webpackConfig['devtool'] = 'source-map'
     webpackConfig['entry']['app'] = [
         'webpack-hot-middleware/client',
         APP_FILE
