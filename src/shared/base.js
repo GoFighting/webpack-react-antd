@@ -6,3 +6,4 @@ window.getUrlParam = function(name) {
 	    }
 	    return null;
 	}
+import './promisePolyfill'
