@@ -48,25 +48,26 @@ var webpackConfig = {
             exclude: /^node_modules$/,
             use: ['babel-loader']
         }, {
-            test: /\.css$/,
+            test: /\.jsx$/,
             exclude: /^node_modules$/,
+            use: ['jsx-loader', 'babel-loader']
+        }, {
+            test: /\.css$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader']
+                use: ['css-loader', 'postcss-loader']
             })
         }, {
             test: /\.less$/,
-            exclude: /^node_modules$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader', 'less-loader']
+                use: ['css-loader', 'postcss-loader', 'less-loader']
             })
         }, {
             test: /\.scss$/,
-            exclude: /^node_modules$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader', 'sass-loader']
+                use: ['css-loader', 'postcss-loader', 'sass-loader']
             })
         }, {
             test: /\.(eot|woff|svg|ttf|woff2|gif|appcache)(\?|$)/, // 打包字体文件
@@ -87,10 +88,6 @@ var webpackConfig = {
                     limit: 2
                 }
             }]
-        }, {
-            test: /\.jsx$/,
-            exclude: /^node_modules$/,
-            use: ['jsx-loader', 'babel-loader']
         }]
     },
     plugins: [

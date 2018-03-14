@@ -26,7 +26,7 @@ const PromisePolyfill = (() => {
                 resolve.bind(this),
                 reject.bind(this)
             );
-            this.listenIn()
+            this.listenIn();
         }
         listenIn() { // 开一个定时器监听状态变化，如果有变化则执行相对应的callback
             const interval = setInterval(() => {

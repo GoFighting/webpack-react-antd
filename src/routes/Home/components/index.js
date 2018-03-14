@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { is, fromJS } from 'immutable'
 import { browserHistory } from 'react-router'
-
+import { Button } from 'antd'
 import '../styles/index.scss'
 
 export default class Home extends Component {
@@ -33,7 +33,7 @@ export default class Home extends Component {
         return (
             <div className="Home_Wrap">
                 <h1>Hello World!!!</h1>
-                <p onClick={e => browserHistory.push('/subWeb')}>快点我</p>
+                <p><Button type="primary" onClick={e => browserHistory.push('/subWeb')}>快点我</Button></p>
             </div>
         )
     }
